@@ -2,6 +2,7 @@ package com.ElecVehicule.demo.model;
 
 import java.util.List;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
