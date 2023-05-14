@@ -13,10 +13,11 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+
 @Table(name = "Localite_Dim")
 public class Localite {
 
@@ -25,7 +26,7 @@ public class Localite {
 	private long id;
 	
 	private String state;
-	private String County;
+	private String county;
 	private String city;
 	private String codepostal;
 	
