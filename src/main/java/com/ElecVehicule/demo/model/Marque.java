@@ -2,6 +2,8 @@ package com.ElecVehicule.demo.model;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,6 +22,7 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@CrossOrigin
 @Entity
 @Table(name = "Marque_Dim")
 public class Marque {
