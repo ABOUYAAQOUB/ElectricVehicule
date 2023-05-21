@@ -1,8 +1,11 @@
 package com.ElecVehicule.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -25,7 +28,7 @@ import lombok.Setter;
 @CrossOrigin
 @Entity
 @Table(name = "Marque_Dim")
-public class Marque {
+public class Marque implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
@@ -35,7 +38,7 @@ public class Marque {
 	private String model_annee;
 	private float base_msrp;
 	
-	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "marque",targetEntity=Consommation.class,cascade = CascadeType.ALL)
 	protected List<Consommation> Consommation;
 	

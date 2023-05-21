@@ -1,8 +1,11 @@
 package com.ElecVehicule.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.cglib.beans.BeanCopier.Generator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "caracteristique_Dim")
-public class Caracteristique {
+public class Caracteristique implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +34,7 @@ public class Caracteristique {
 	private int electricRange;
 	private String electricUtility;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "caracteristique",cascade = CascadeType.ALL)
 	protected List<Consommation> Consommation;
 }

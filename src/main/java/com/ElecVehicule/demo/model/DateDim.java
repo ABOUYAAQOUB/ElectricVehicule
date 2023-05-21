@@ -1,7 +1,9 @@
 package com.ElecVehicule.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,7 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "Date_Dim")
-public class DateDim {
+public class DateDim implements Serializable{
 
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -30,6 +32,7 @@ public class DateDim {
 	private int month;
 	private int day;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "dateDim",targetEntity=Consommation.class,cascade = CascadeType.ALL)
 	protected List<Consommation> Consommation;
 }
